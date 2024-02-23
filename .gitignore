@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/snr-backend-api/.vs
+/snr-backend-api/SNR/.vs
+/snr-backend-api/SNR/SNR_API/bin/Debug/net6.0
+/snr-backend-api/SNR/SNR_API/obj
+/snr-backend-api/SNR/SNR_Business/bin/Debug/net6.0
+/snr-backend-api/SNR/SNR_Business/obj
+/snr-backend-api/SNR/SNR_Data/bin/Debug/net6.0
+/snr-backend-api/SNR/SNR_Data/obj
+/snr-backend-api/SNR/SNR_Entities/bin/Debug/net6.0
+/snr-backend-api/SNR/SNR_Entities/obj
