@@ -30,6 +30,7 @@ namespace SNR_API.Services
             #region DataLayer Services
             services.AddTransient<ISQLHelper>(d => new SQLHelper(config["Database:ConnectionString"]));
             services.AddTransient<IdCustomer, dCustomer>();
+            services.AddTransient<IdRate, dRate>();
             #endregion
 
             return services;

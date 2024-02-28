@@ -11,96 +11,91 @@ using SNR_Data.Util;
 
 namespace SNR_Data
 {
-    public interface IdCustomer
+    public interface IdRate
     {
-        int AddUpdateCustomer(CustomerEntity req);
-        DataSet GetCustomer(int? custId);
-        int DeleteCustomer(int custId);
+        int AddUpdateRate(RateEntity req);
+        DataSet GetRate(int? rateId);
+        int DeleteRate(int rateId);
     }
 
-    public class dCustomer : IdCustomer
+    public class dRate : IdRate
     {
         private readonly ISQLHelper _helper;
-        public dCustomer(ISQLHelper helper)
+        public dRate(ISQLHelper helper)
         {
             _helper = helper;
         }
-        public int AddUpdateCustomer(CustomerEntity req)
+        public int AddUpdateRate(RateEntity req)
         {
             List<SqlParameter> param = new List<SqlParameter>();
             param.Add(new SqlParameter("@Flag", SqlDbType.Int)
             {
                 Direction = ParameterDirection.Output
+            });
+            param.Add(new SqlParameter("@RateId", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.rateId
             });
             param.Add(new SqlParameter("@CustomerId", SqlDbType.Int)
             {
                 Direction = ParameterDirection.Input,
                 Value = req.customerId
             });
-            param.Add(new SqlParameter("@Name", SqlDbType.NVarChar)
+            param.Add(new SqlParameter("@TransportationMode", SqlDbType.NVarChar)
             {
                 Direction = ParameterDirection.Input,
-                Value = req.name
-            });
-            param.Add(new SqlParameter("@Email", SqlDbType.NVarChar)
-            {
-                Direction = ParameterDirection.Input,
-                Value = req.email
-            });
-            param.Add(new SqlParameter("@Mobile", SqlDbType.NVarChar)
-            {
-                Direction = ParameterDirection.Input,
-                Value = req.mobile
-            });
-            param.Add(new SqlParameter("@GstNo", SqlDbType.NVarChar)
-            {
-                Direction = ParameterDirection.Input,
-                Value = req.gstNo
-            });
-            param.Add(new SqlParameter("@Address", SqlDbType.NVarChar)
-            {
-                Direction = ParameterDirection.Input,
-                Value = req.address
+                Value = req.transportationMode
             });
             param.Add(new SqlParameter("@City", SqlDbType.NVarChar)
             {
                 Direction = ParameterDirection.Input,
                 Value = req.city
             });
-            param.Add(new SqlParameter("@State", SqlDbType.NVarChar)
+            param.Add(new SqlParameter("@MinWeight", SqlDbType.NVarChar)
             {
                 Direction = ParameterDirection.Input,
-                Value = req.state
+                Value = req.minWeight
             });
-            SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spCustomer_Insert_Update");
+            param.Add(new SqlParameter("@RatePerKg", SqlDbType.NVarChar)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.ratePerKg
+            });
+            param.Add(new SqlParameter("@RatePerPiece", SqlDbType.NVarChar)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.ratePerPiece
+            });
+            SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spRate_Insert_Update");
             cmd.ExecuteNonQuery();
             return cmd.Parameters["@Flag"].Value.ToString().ToInt();
         }
 
-        public DataSet GetCustomer(int? custId)
+        public DataSet GetRate(int? rateId)
         {
             List<SqlParameter> param = new List<SqlParameter>();
-            param.Add(new SqlParameter("@CustomerId", SqlDbType.Int)
+            param.Add(new SqlParameter("@RateId", SqlDbType.Int)
             {
                 Direction = ParameterDirection.Input,
-                Value = custId
+                Value = rateId
             });
-            return _helper.ReturnWithDataSet(param.ToArray(), "spCustomer_GetAll_ById");
+            return _helper.ReturnWithDataSet(param.ToArray(), "spRate_GetAll_ById");
         }
 
-        public int DeleteCustomer(int custId)
+        public int DeleteRate(int empId)
         {
             List<SqlParameter> param = new List<SqlParameter>();
             param.Add(new SqlParameter("@Flag", SqlDbType.Int)
             {
                 Direction = ParameterDirection.Output
             });
-            param.Add(new SqlParameter("@CustomerId", SqlDbType.Int)
+            param.Add(new SqlParameter("@RateId", SqlDbType.Int)
             {
                 Direction = ParameterDirection.Input,
-                Value = custId
+                Value = empId
             });
-            SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spCustomer_Delete");
+            SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spRate_Delete");
             cmd.ExecuteNonQuery();
             return cmd.Parameters["@Flag"].Value.ToString().ToInt();
         }

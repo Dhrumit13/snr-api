@@ -19,10 +19,10 @@ namespace SNR_Business.Customer
     {
         public CustomerEntity[] Customers { get; set; }
     }
-    public class GetCustomerQueryHandler : IQueryHandler<GetCustomerQuery, GetCustomerQueryResult>
+    public class GetRateQueryHandler : IQueryHandler<GetCustomerQuery, GetCustomerQueryResult>
     {
         private readonly IdCustomer _cust;
-        public GetCustomerQueryHandler(IdCustomer cust)
+        public GetRateQueryHandler(IdCustomer cust)
         {
             _cust = cust;
         }

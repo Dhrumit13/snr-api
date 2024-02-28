@@ -23,7 +23,7 @@ namespace SNR_API.Controllers
         [HttpGet("{id}")]
         public IActionResult GetCustomer(int? id)
         {
-            return StatusCode((int)HttpStatusCode.OK, _mediator.Query(new GetCustomerQuery {empId = id }));
+            return StatusCode((int)HttpStatusCode.OK, _mediator.Query(new GetCustomerQuery { custId = id }));
         }
         [HttpPost]
         public IActionResult AddUpdateCustomer([FromBody] AddUpdateCustomerCommand cmd)
@@ -33,7 +33,7 @@ namespace SNR_API.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteCustomer(int id)
         {
-            return StatusCode((int)HttpStatusCode.OK, _mediator.Execute<DeleteCustomerCommandResult>(new DeleteCustomerCommand {empId = id }));
+            return StatusCode((int)HttpStatusCode.OK, _mediator.Execute<DeleteCustomerCommandResult>(new DeleteCustomerCommand {custId = id }));
         }
     }
 }

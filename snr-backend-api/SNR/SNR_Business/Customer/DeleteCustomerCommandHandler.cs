@@ -6,7 +6,7 @@ namespace SNR_Business.Customer
 {
     public class DeleteCustomerCommand : ICommandWithResponse<DeleteCustomerCommandResult>
     {
-        public int empId { get; set; }
+        public int custId { get; set; }
     }
     public class DeleteCustomerCommandResult
     {
@@ -22,7 +22,7 @@ namespace SNR_Business.Customer
         public DeleteCustomerCommandResult Handle(DeleteCustomerCommand cmd)
         {
 
-            var _resFlag = _Customer.DeleteCustomer(cmd.empId);
+            var _resFlag = _Customer.DeleteCustomer(cmd.custId);
             return new DeleteCustomerCommandResult { resFlag = _resFlag };
         }
     }
