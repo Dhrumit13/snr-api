@@ -14,6 +14,10 @@ namespace SNR_Business.Customer
         public string address { get; set; }
         public string city { get; set; }
         public string state { get; set; }
+        public float? cgst { get; set; }
+        public float? sgst { get; set; }
+        public float? igst { get; set; }
+        public bool? isActive { get; set; }
     }
     public class AddUpdateCustomerCommandResult
     {
@@ -39,7 +43,11 @@ namespace SNR_Business.Customer
                      gstNo = cmd.gstNo, 
                      address = cmd.address,
                      city = cmd.city,
-                     state = cmd.state
+                     state = cmd.state,
+                     cgst = cmd.cgst,
+                     sgst = cmd.sgst,
+                     igst = cmd.igst,
+                     isActive = cmd.isActive
                  }
                  );
             return new AddUpdateCustomerCommandResult { resFlag = _resFlag };

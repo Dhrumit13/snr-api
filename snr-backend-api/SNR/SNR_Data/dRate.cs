@@ -14,7 +14,7 @@ namespace SNR_Data
     public interface IdRate
     {
         int AddUpdateRate(RateEntity req);
-        DataSet GetRate(int? rateId);
+        DataSet GetRate(int? rateId, int? customerId);
         int DeleteRate(int rateId);
     }
 
@@ -72,13 +72,18 @@ namespace SNR_Data
             return cmd.Parameters["@Flag"].Value.ToString().ToInt();
         }
 
-        public DataSet GetRate(int? rateId)
+        public DataSet GetRate(int? rateId, int? customerId)
         {
             List<SqlParameter> param = new List<SqlParameter>();
             param.Add(new SqlParameter("@RateId", SqlDbType.Int)
             {
                 Direction = ParameterDirection.Input,
                 Value = rateId
+            });
+            param.Add(new SqlParameter("@CustomerId", SqlDbType.Int)
+            {
+                Direction = ParameterDirection.Input,
+                Value = customerId
             });
             return _helper.ReturnWithDataSet(param.ToArray(), "spRate_GetAll_ById");
         }

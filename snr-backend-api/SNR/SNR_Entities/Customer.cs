@@ -10,5 +10,9 @@
         public string address { get; set; }
         public string city { get; set; }
         public string state { get; set; }
+        public float? cgst { get; set; }
+        public float? sgst { get; set; }
+        public float? igst { get; set; }
+        public bool? isActive { get; set; }
     }
 }

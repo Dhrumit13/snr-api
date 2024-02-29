@@ -72,6 +72,26 @@ namespace SNR_Data
                 Direction = ParameterDirection.Input,
                 Value = req.state
             });
+            param.Add(new SqlParameter("@Cgst", SqlDbType.Float)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.cgst
+            });
+            param.Add(new SqlParameter("@Sgst", SqlDbType.Float)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.sgst
+            });
+            param.Add(new SqlParameter("@Igst", SqlDbType.Float)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.igst
+            });
+            param.Add(new SqlParameter("@IsActive", SqlDbType.Bit)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.isActive
+            });
             SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spCustomer_Insert_Update");
             cmd.ExecuteNonQuery();
             return cmd.Parameters["@Flag"].Value.ToString().ToInt();

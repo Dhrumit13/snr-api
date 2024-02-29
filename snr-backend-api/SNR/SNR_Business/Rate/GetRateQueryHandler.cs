@@ -14,6 +14,7 @@ namespace SNR_Business.Rate
     public class GetRateQuery : IQuery<GetRateQueryResult>
     {
         public int? rateId { get; set; }
+        public int? customerId { get; set; }
     }
     public class GetRateQueryResult
     {
@@ -30,7 +31,7 @@ namespace SNR_Business.Rate
         public GetRateQueryResult Get(GetRateQuery query)
         {
             var res = new GetRateQueryResult();
-            var ds = _rate.GetRate(query.rateId);
+            var ds = _rate.GetRate(query.rateId, query.customerId);
             if (!ds.IsNullOrEmpty()) {
                 List<RateEntity> lstrate = new List<RateEntity>();
                 foreach (DataRow dr in ds.Tables[0].Rows)
@@ -43,7 +44,7 @@ namespace SNR_Business.Rate
                         city = dr["city"].ToString(),
                         minWeight = dr["minWeight"].ToString(),
                         ratePerKg = dr["ratePerKg"].ToString(),
-                        ratePerPiece = dr["ratePerPiece"].ToString()
+                        ratePerPiece = dr["ratePerPiece"].ToString()                       
                     });
                 }
                 res.Rates = lstrate.ToArray();

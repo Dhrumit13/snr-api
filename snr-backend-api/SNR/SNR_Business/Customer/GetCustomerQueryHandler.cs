@@ -44,7 +44,11 @@ namespace SNR_Business.Customer
                         gstNo = dr["gstNo"].ToString(),
                         address = dr["address"].ToString(),
                         city = dr["city"].ToString(),
-                        state = dr["state"].ToString()
+                        state = dr["state"].ToString(),
+                        cgst = dr["cgst"].ObjToNullableFloat(),
+                        sgst = dr["sgst"].ObjToNullableFloat(),
+                        igst = dr["igst"].ObjToNullableFloat(),
+                        isActive = dr["isActive"].ObjToNullableBool()
                     });
                 }
                 res.Customers = lstCust.ToArray();

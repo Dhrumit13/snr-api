@@ -342,6 +342,10 @@ namespace SNR_Business.Common.Util
         {
             return string.IsNullOrEmpty(s.ToString()) ? (decimal?)null : Convert.ToDecimal(s);
         }
+        public static float? ObjToNullableFloat(this object s)
+        {
+            return string.IsNullOrEmpty(s.ToString()) ? (float?)null : Convert.ToSingle(s);
+        }
         public static Double? ObjToNullableDouble(this object s)
         {
             return string.IsNullOrEmpty(s.ToString()) ? (Double?)null : Convert.ToDouble(s);
