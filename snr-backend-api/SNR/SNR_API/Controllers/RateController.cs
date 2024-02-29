@@ -15,15 +15,15 @@ namespace SNR_API.Controllers
         {
             _mediator = mediator;
         }
+        //[HttpGet]
+        //public IActionResult GetRate()
+        //{
+        //    return StatusCode((int)HttpStatusCode.OK, _mediator.Query(new GetRateQuery()));
+        //}
         [HttpGet]
-        public IActionResult GetRate()
+        public IActionResult GetRate([FromQuery] GetRateQuery query)
         {
-            return StatusCode((int)HttpStatusCode.OK, _mediator.Query(new GetRateQuery()));
-        }
-        [HttpGet("{id}")]
-        public IActionResult GetRate(int? id)
-        {
-            return StatusCode((int)HttpStatusCode.OK, _mediator.Query(new GetRateQuery { rateId = id }));
+            return StatusCode((int)HttpStatusCode.OK, _mediator.Query(query));
         }
         [HttpPost]
         public IActionResult AddUpdateRate([FromBody] AddUpdateRateCommand cmd)
