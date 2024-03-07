@@ -20,10 +20,10 @@ namespace SNR_Business.Rate
     {
         public RateEntity[] Rates { get; set; }
     }
-    public class GetRateQueryHandler : IQueryHandler<GetRateQuery, GetRateQueryResult>
+    public class GetUserQueryHandler : IQueryHandler<GetRateQuery, GetRateQueryResult>
     {
         private readonly IdRate _rate;
-        public GetRateQueryHandler(IdRate rate)
+        public GetUserQueryHandler(IdRate rate)
         {
             _rate = rate;
         }

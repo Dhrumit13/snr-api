@@ -31,6 +31,7 @@ namespace SNR_API.Services
             services.AddTransient<ISQLHelper>(d => new SQLHelper(config["Database:ConnectionString"]));
             services.AddTransient<IdCustomer, dCustomer>();
             services.AddTransient<IdRate, dRate>();
+            services.AddTransient<IdUser, dUser>();
             #endregion
 
             return services;

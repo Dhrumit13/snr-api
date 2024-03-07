@@ -42,6 +42,11 @@ namespace SNR_Data
                 Direction = ParameterDirection.Input,
                 Value = req.userName
             });
+            param.Add(new SqlParameter("@Password", SqlDbType.NVarChar)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.password
+            });
             param.Add(new SqlParameter("@Email", SqlDbType.NVarChar)
             {
                 Direction = ParameterDirection.Input,

@@ -12,10 +12,10 @@ namespace SNR_Business.Rate
     {
         public int resFlag { get; set; }
     }
-    public class DeleteRateCommandHandler : ICommandHandler<DeleteRateCommand, DeleteRateCommandResult>
+    public class DeleteUserCommandHandler : ICommandHandler<DeleteRateCommand, DeleteRateCommandResult>
     {
         private readonly IdRate _rate;
-        public DeleteRateCommandHandler(IdRate Rate)
+        public DeleteUserCommandHandler(IdRate Rate)
         {
             _rate = Rate;
         }
