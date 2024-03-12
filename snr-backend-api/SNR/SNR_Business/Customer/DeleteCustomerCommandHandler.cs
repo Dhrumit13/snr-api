@@ -12,10 +12,10 @@ namespace SNR_Business.Customer
     {
         public int resFlag { get; set; }
     }
-    public class DeleteCustomerCommandHandler : ICommandHandler<DeleteCustomerCommand, DeleteCustomerCommandResult>
+    public class DeleteReceiverCommandHandler : ICommandHandler<DeleteCustomerCommand, DeleteCustomerCommandResult>
     {
         private readonly IdCustomer _Customer;
-        public DeleteCustomerCommandHandler(IdCustomer Customer)
+        public DeleteReceiverCommandHandler(IdCustomer Customer)
         {
             _Customer = Customer;
         }

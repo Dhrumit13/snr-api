@@ -23,10 +23,10 @@ namespace SNR_Business.Customer
     {
         public int resFlag { get; set; }
     }
-    public class AddUpdateCustomerCommandHandler : ICommandHandler<AddUpdateCustomerCommand, AddUpdateCustomerCommandResult>
+    public class AddUpdateReceiverCommandHandler : ICommandHandler<AddUpdateCustomerCommand, AddUpdateCustomerCommandResult>
     {
         private readonly IdCustomer _Customer;
-        public AddUpdateCustomerCommandHandler(IdCustomer Customer)
+        public AddUpdateReceiverCommandHandler(IdCustomer Customer)
         {
             _Customer = Customer;
         }
