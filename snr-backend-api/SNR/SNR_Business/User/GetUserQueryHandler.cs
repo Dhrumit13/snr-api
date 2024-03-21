@@ -43,6 +43,7 @@ namespace SNR_Business.User
                         email = dr["email"].ToString(),
                         mobile = dr["mobile"].ToString(),
                         role = dr["role"].ToString(),
+                        city = dr["city"].ToString()
                     });
                 }
                 res.users = lstUser.ToArray();

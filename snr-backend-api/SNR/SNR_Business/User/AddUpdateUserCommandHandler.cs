@@ -12,6 +12,7 @@ namespace SNR_Business.User
         public string email { get; set; }
         public string mobile { get; set; }
         public string role { get; set; }
+        public string city { get; set; }
     }
     public class AddUpdateUserCommandResult
     {
@@ -34,7 +35,8 @@ namespace SNR_Business.User
                      password = cmd.password,
                      email = cmd.email,
                      mobile = cmd.mobile,
-                     role = cmd.role
+                     role = cmd.role,
+                     city = cmd.city,
                  });
             return new AddUpdateUserCommandResult { resFlag = _resFlag };
         }
