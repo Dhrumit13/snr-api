@@ -15,7 +15,7 @@
         public decimal? netAmount { get; set; }
         public string remarks { get; set; }
         public DateTime? bookingDate { get; set; }
-        public List<BookingChargestbl> charges { get; set; }
+        public List<BookingChargestbl> otherCharges { get; set; }
     }
 
 

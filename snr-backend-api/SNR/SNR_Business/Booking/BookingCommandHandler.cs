@@ -74,10 +74,10 @@ namespace SNR_Business.Booking
             req.remarks = cmd.remarks;
             if (cmd.otherCharges != null && cmd.otherCharges.Length > 0)
             { 
-                req.charges = new List<BookingChargestbl>();
+                req.otherCharges = new List<BookingChargestbl>();
                 foreach (var charge in cmd.otherCharges)
                 {
-                    req.charges.Add(new BookingChargestbl
+                    req.otherCharges.Add(new BookingChargestbl
                     {
                         OtherChargeId = charge.chargeType.otherChargeId,
                         Value = charge.value

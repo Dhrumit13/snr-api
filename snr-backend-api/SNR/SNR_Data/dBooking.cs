@@ -94,7 +94,7 @@ namespace SNR_Data
             param.Add(new SqlParameter("@Charges", SqlDbType.Structured)
             {
                 Direction = ParameterDirection.Input,
-                Value = req.charges.ToBookingChargestbl()
+                Value = req.otherCharges.ToBookingChargestbl()
             });
             SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spBooking_Insert_Update");
             cmd.ExecuteNonQuery();
