@@ -34,6 +34,7 @@ namespace SNR_API.Services
             services.AddTransient<IdUser, dUser>();
             services.AddTransient<IdOtherCharges, dOtherCharges>();
             services.AddTransient<IdReceiver, dReceiver>();
+            services.AddTransient<IdBooking, dBooking>();
             #endregion
 
             return services;

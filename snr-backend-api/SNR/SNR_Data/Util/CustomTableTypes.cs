@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SNR_Entities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,6 +11,24 @@ namespace SNR_Data.Util
 {
     public static class CustomTableTypes
     {
+        public static DataTable ToBookingChargestbl(this List<BookingChargestbl> charges)
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("OtherChargeId", typeof(Int32));
+            dt.Columns.Add("Value", typeof(decimal));
+            if (charges != null && charges.Count > 0)
+            {
+                foreach (var item in charges)
+                {
+                    DataRow row = dt.NewRow();
+                    row["OtherChargeId"] = item.OtherChargeId;
+                    row["Value"] = item.Value;
+                    dt.Rows.Add(row);
+                }
+            }
+            return dt;
+        }
+
         public static DataTable TotbListTypeBigInt(this Int64?[] LongArray)
         {
             DataTable dt = new DataTable();
@@ -129,4 +148,5 @@ namespace SNR_Data.Util
             return convertedTable;
         }
     }
+
 }
