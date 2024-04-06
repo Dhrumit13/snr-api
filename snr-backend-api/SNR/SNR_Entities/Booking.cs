@@ -21,7 +21,17 @@
 
     public class BookingChargestbl
     {
-        public int OtherChargeId { get; set; }
-        public decimal Value { get; set; }
+        public long? bookingId { get; set; }
+        public int otherChargeId { get; set; }
+        public decimal value { get; set; }
+        public ChargeType chargeType { get; set; }
+
+    }
+
+    public class ChargeType
+    {
+        public int otherChargeId { get; set; }
+        public string otherChargeName { get; set; }
+        public decimal amount { get; set; }
     }
 }

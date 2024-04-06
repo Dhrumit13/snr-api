@@ -21,8 +21,8 @@ namespace SNR_Data.Util
                 foreach (var item in charges)
                 {
                     DataRow row = dt.NewRow();
-                    row["OtherChargeId"] = item.OtherChargeId;
-                    row["Value"] = item.Value;
+                    row["OtherChargeId"] = item.otherChargeId;
+                    row["Value"] = item.value;
                     dt.Rows.Add(row);
                 }
             }

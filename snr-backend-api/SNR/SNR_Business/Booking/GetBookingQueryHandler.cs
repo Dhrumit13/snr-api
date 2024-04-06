@@ -31,7 +31,30 @@ namespace SNR_Business.Customer
         {
             var res = new GetBookingQueryResult();
             var ds = _booking.GetBooking(query.bookingId);
-            if (!ds.IsNullOrEmpty()) {
+            if (!ds.IsNullOrEmpty())
+            {
+                var lstOtherCharges = new List<BookingChargestbl>();
+                if (ds.Tables.Count > 1 && !ds.Tables[1].IsNullOrEmpty())
+                {
+                    foreach (DataRow dr in ds.Tables[1].Rows)
+                    {
+                        lstOtherCharges.Add(new BookingChargestbl
+                        {
+                            bookingId = dr["BookingId"].ObjToNullableLong(),
+                            otherChargeId = dr["OtherChargeId"].ObjToInt32(),
+                            value = dr["Value"].ObjToDecimal(),
+                            chargeType = new ChargeType
+                            {
+                                otherChargeId = dr["OtherChargeId"].ObjToInt32(),
+                                otherChargeName = dr["otherChargeName"].ToString(),
+                                amount = dr["amount"].ObjToDecimal()
+                            }
+                        });
+                    }
+                }
+
+
+
                 List<BookingEntity> lstBooking = new List<BookingEntity>();
                 foreach (DataRow dr in ds.Tables[0].Rows)
                 {
@@ -49,7 +72,8 @@ namespace SNR_Business.Customer
                         paymentMode = dr["PaymentMode"].ToString(),
                         netAmount = dr["NetAmount"].ObjToNullableDecimal(),
                         remarks = dr["Remarks"].ToString(),
-                        bookingDate = dr["BookingDate"].ObjToNullableDateTime()
+                        bookingDate = dr["BookingDate"].ObjToNullableDateTime(),
+                        otherCharges = lstOtherCharges.Where(x => x.bookingId == dr["BookingId"].ObjToNullableLong()).ToList()
                     });
                 }
                 res.Booking = lstBooking.ToArray();

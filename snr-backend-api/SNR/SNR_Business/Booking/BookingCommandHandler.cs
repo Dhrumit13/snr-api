@@ -79,8 +79,8 @@ namespace SNR_Business.Booking
                 {
                     req.otherCharges.Add(new BookingChargestbl
                     {
-                        OtherChargeId = charge.chargeType.otherChargeId,
-                        Value = charge.value
+                        otherChargeId = charge.chargeType.otherChargeId,
+                        value = charge.value
                     });
                 }
             }
