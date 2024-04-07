@@ -16,6 +16,8 @@
         public string remarks { get; set; }
         public DateTime? bookingDate { get; set; }
         public List<BookingChargestbl> otherCharges { get; set; }
+        public CustomerEntity customer { get; set; }
+        public ReceiverEntity receiver { get; set; }
     }
 
 

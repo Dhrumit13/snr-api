@@ -73,7 +73,33 @@ namespace SNR_Business.Customer
                         netAmount = dr["NetAmount"].ObjToNullableDecimal(),
                         remarks = dr["Remarks"].ToString(),
                         bookingDate = dr["BookingDate"].ObjToNullableDateTime(),
-                        otherCharges = lstOtherCharges.Where(x => x.bookingId == dr["BookingId"].ObjToNullableLong()).ToList()
+                        otherCharges = lstOtherCharges.Where(x => x.bookingId == dr["BookingId"].ObjToNullableLong()).ToList(),
+                        customer = new CustomerEntity
+                        {
+                            customerId = dr["customerId"].ObjToNullableInt32(),
+                            name = dr["name"].ToString(),
+                            email = dr["email"].ToString(),
+                            mobile = dr["mobile"].ToString(),
+                            gstNo = dr["gstNo"].ToString(),
+                            address = dr["address"].ToString(),
+                            city = dr["city"].ToString(),
+                            state = dr["state"].ToString(),
+                            cgst = dr["cgst"].ObjToNullableFloat(),
+                            sgst = dr["sgst"].ObjToNullableFloat(),
+                            igst = dr["igst"].ObjToNullableFloat(),
+                            isActive = dr["isActive"].ObjToNullableBool()
+                        },
+                        receiver = new ReceiverEntity
+                        {
+                            receiverId = dr["receiverId"].ObjToNullableInt32(),
+                            receiverName = dr["receiverName"].ToString(),
+                            email = dr["email"].ToString(),
+                            mobile = dr["mobile"].ToString(),
+                            address = dr["address"].ToString(),
+                            city = dr["city"].ToString(),
+                            isActive = dr["isActive"].ObjToNullableBool()
+                        }
+
                     });
                 }
                 res.Booking = lstBooking.ToArray();
