@@ -52,7 +52,12 @@ namespace SNR_Data
                 Direction = ParameterDirection.Input,
                 Value = req.mobile
             });
-           
+            param.Add(new SqlParameter("@GstNo", SqlDbType.NVarChar)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.gstNo
+            });
+
             param.Add(new SqlParameter("@Address", SqlDbType.NVarChar)
             {
                 Direction = ParameterDirection.Input,

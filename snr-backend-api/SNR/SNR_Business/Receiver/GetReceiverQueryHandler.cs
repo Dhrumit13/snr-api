@@ -41,6 +41,7 @@ namespace SNR_Business.Receiver
                         receiverName = dr["receiverName"].ToString(),
                         email = dr["email"].ToString(),
                         mobile = dr["mobile"].ToString(),
+                        gstNo = dr["gstNo"].ToString(),
                         address = dr["address"].ToString(),
                         city = dr["city"].ToString(),
                         isActive = dr["isActive"].ObjToNullableBool()

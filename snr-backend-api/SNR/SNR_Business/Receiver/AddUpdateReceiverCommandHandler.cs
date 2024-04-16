@@ -10,6 +10,7 @@ namespace SNR_Business.Receiver
         public string receiverName { get; set; }
         public string email { get; set; }
         public string mobile { get; set; }
+        public string gstNo { get; set; }
         public string address { get; set; }
         public string city { get; set; }
         public bool? isActive { get; set; }
@@ -35,6 +36,7 @@ namespace SNR_Business.Receiver
                      receiverName = cmd.receiverName,
                      email = cmd.email,
                      mobile = cmd.mobile,
+                     gstNo = cmd.gstNo,
                      address = cmd.address,
                      city = cmd.city,
                      isActive = cmd.isActive
