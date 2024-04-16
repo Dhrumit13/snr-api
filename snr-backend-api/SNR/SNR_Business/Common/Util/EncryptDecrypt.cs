@@ -12,9 +12,9 @@ namespace SNR_Business.Common.Util
         private const int Keysize = 256;
         private const int Keysize128 = 128;
         private const int DerivationIterations = 1000;
-        private const string _securityKey = "MyComplexKey";
+        private const string _securityKey = "MyComplexKey123456789";
 
-        private const string JWT_securityKey = "JWT_C0rE!0TP@ssw0rd0!";
+        private const string JWT_securityKey = "JWT_C0rE!0TP@ssw0rd0!123456789";
 
         static string securityende = "SNRCore";
         static string PrjName = "SNR22Prj";

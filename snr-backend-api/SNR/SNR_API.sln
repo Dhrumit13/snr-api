@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SNR_Data", "SNR_Data\SNR_Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SNR_Entities", "SNR_Entities\SNR_Entities.csproj", "{FF488016-6303-4829-828F-F1406B34B859}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SNR.Test", "SNR.Test\SNR.Test.csproj", "{97C141A2-2B59-4B2E-9B24-BFB9BFAA51D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FF488016-6303-4829-828F-F1406B34B859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF488016-6303-4829-828F-F1406B34B859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF488016-6303-4829-828F-F1406B34B859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C141A2-2B59-4B2E-9B24-BFB9BFAA51D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C141A2-2B59-4B2E-9B24-BFB9BFAA51D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C141A2-2B59-4B2E-9B24-BFB9BFAA51D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C141A2-2B59-4B2E-9B24-BFB9BFAA51D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
