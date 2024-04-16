@@ -35,5 +35,15 @@ namespace SNR_API.Controllers
         {
             return StatusCode((int)HttpStatusCode.OK, _mediator.Execute<DeleteUserCommandResult>(new DeleteUserCommand {userId = id }));
         }
+        [HttpPost("auth")]
+        public IActionResult UserAuth([FromBody] UserAuthCommand cmd)
+        {
+            var res = _mediator.Execute<UserAuthCommandResult>(cmd);
+            if (res.resFlag > 0) { 
+                return StatusCode((int)HttpStatusCode.OK,res );
+            }
+            return StatusCode((int)HttpStatusCode.Unauthorized, res);
+
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace SNR_Data
         int AddUpdateUser(UserEntity req);
         DataSet GetUser(int? userId);
         int DeleteUser(int userId);
+        DataSet UserAuthentication(string userName, string password);
     }
 
     public class dUser : IdUser
@@ -62,11 +63,11 @@ namespace SNR_Data
                 Direction = ParameterDirection.Input,
                 Value = req.role
             });
-            param.Add(new SqlParameter("@City", SqlDbType.NVarChar)
-            {
-                Direction = ParameterDirection.Input,
-                Value = req.city
-            });
+            //param.Add(new SqlParameter("@City", SqlDbType.NVarChar)
+            //{
+            //    Direction = ParameterDirection.Input,
+            //    Value = req.city
+            //});
             SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spUser_Insert_Update");
             cmd.ExecuteNonQuery();
             return cmd.Parameters["@Flag"].Value.ToString().ToInt();
@@ -98,6 +99,22 @@ namespace SNR_Data
             SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spUser_Delete");
             cmd.ExecuteNonQuery();
             return cmd.Parameters["@Flag"].Value.ToString().ToInt();
+        }
+
+        public DataSet UserAuthentication(string userName, string password)
+        {
+            List<SqlParameter> param = new List<SqlParameter>();
+            param.Add(new SqlParameter("@userName", SqlDbType.NVarChar)
+            {
+                Direction = ParameterDirection.Input,
+                Value = userName
+            });
+            param.Add(new SqlParameter("@password", SqlDbType.NVarChar)
+            {
+                Direction = ParameterDirection.Input,
+                Value = password
+            });
+            return _helper.ReturnWithDataSet(param.ToArray(), "spUser_Auth");
         }
     }
 }

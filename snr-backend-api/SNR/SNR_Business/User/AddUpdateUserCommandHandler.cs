@@ -1,6 +1,8 @@
 ﻿using SNR_Business.Common.Handler;
+using SNR_Business.Common.Util;
 using SNR_Data;
 using SNR_Entities;
+using System.Xml;
 
 namespace SNR_Business.User
 {
@@ -27,6 +29,9 @@ namespace SNR_Business.User
         }
         public AddUpdateUserCommandResult Handle(AddUpdateUserCommand cmd)
         {
+
+            cmd.password = EncryptDecrypt.Encrypt(cmd.password.Trim(), true);
+
             var _resFlag = _user.AddUpdateUser(
                  new UserEntity
                  {
