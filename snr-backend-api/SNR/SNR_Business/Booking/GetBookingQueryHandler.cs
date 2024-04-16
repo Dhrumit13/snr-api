@@ -77,16 +77,16 @@ namespace SNR_Business.Customer
                         customer = new CustomerEntity
                         {
                             customerId = dr["customerId"].ObjToNullableInt32(),
-                            name = dr["name"].ToString(),
-                            email = dr["email"].ToString(),
-                            mobile = dr["mobile"].ToString(),
-                            gstNo = dr["gstNo"].ToString(),
-                            address = dr["address"].ToString(),
-                            city = dr["city"].ToString(),
-                            state = dr["state"].ToString(),
-                            cgst = dr["cgst"].ObjToNullableFloat(),
-                            sgst = dr["sgst"].ObjToNullableFloat(),
-                            igst = dr["igst"].ObjToNullableFloat(),
+                            name = dr["cName"].ToString(),
+                            email = dr["cEmail"].ToString(),
+                            mobile = dr["cMobile"].ToString(),
+                            gstNo = dr["cGstNo"].ToString(),
+                            address = dr["cAddress"].ToString(),
+                            city = dr["cCity"].ToString(),
+                            state = dr["cState"].ToString(),
+                            cgst = dr["cCgst"].ObjToNullableFloat(),
+                            sgst = dr["cSgst"].ObjToNullableFloat(),
+                            igst = dr["cIgst"].ObjToNullableFloat(),
                             isActive = dr["isActive"].ObjToNullableBool()
                         },
                         receiver = new ReceiverEntity

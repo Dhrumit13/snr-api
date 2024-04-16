@@ -29,9 +29,7 @@ namespace SNR_Business.User
         }
         public AddUpdateUserCommandResult Handle(AddUpdateUserCommand cmd)
         {
-
             cmd.password = EncryptDecrypt.Encrypt(cmd.password.Trim(), true);
-
             var _resFlag = _user.AddUpdateUser(
                  new UserEntity
                  {
