@@ -46,7 +46,7 @@ namespace SNR_Business.User
                 if (userInfo.userId > 0) {
                     var token = Jwt.GetJwtToken(new TokenInfo { 
                     userId = userInfo.userId.ToString(),
-                    userName = "",
+                    userName = userInfo.userName,
                     tokenExpireInMin = 3600,
                     });
 
