@@ -63,11 +63,11 @@ namespace SNR_Data
                 Direction = ParameterDirection.Input,
                 Value = req.role
             });
-            //param.Add(new SqlParameter("@City", SqlDbType.NVarChar)
-            //{
-            //    Direction = ParameterDirection.Input,
-            //    Value = req.city
-            //});
+            param.Add(new SqlParameter("@City", SqlDbType.NVarChar)
+            {
+                Direction = ParameterDirection.Input,
+                Value = req.city
+            });
             SqlCommand cmd = _helper.CreateCommandObject(param.ToArray(), "spUser_Insert_Update");
             cmd.ExecuteNonQuery();
             return cmd.Parameters["@Flag"].Value.ToString().ToInt();
